@@ -1,0 +1,28 @@
+---
+# zerodowntimeentropy_rng/tasks/main.yml
+
+- name: entropy_rng | install rng-tools
+  yum:
+    name: rng-tools
+    state: present
+  tags:
+    - entropy_rng
+    - entropy_rng::install
+
+
+- name: entropy_rng | ensure that rng-tools service is started
+  systemd:
+    state: started
+    name: rngd
+  tags:
+    - entropy_rng
+    - entropy_rng::started
+
+
+- name: entropy_rng | ensure that rng-tools service is enabled
+  systemd:
+    enabled: true
+    name: rngd
+  tags:
+    - entropy_rng
+    - entropy_rng::started
