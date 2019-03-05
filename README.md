@@ -1,6 +1,6 @@
 # entropy_rng
 
-nsible role to install selinux auditing tools
+Increase the entropy available in the system
 
 ## Installation
 
